@@ -169,55 +169,18 @@ let testQuestion42 = {
     answer: "b"
 }
 
-let questions = [];
+const questions = [
+    testQuestion1, testQuestion2, testQuestion3, testQuestion4, testQuestion5,
+    testQuestion6, testQuestion7, testQuestion8, testQuestion9, testQuestion10,
+    testQuestion11, testQuestion12, testQuestion13, testQuestion14, testQuestion15,
+    testQuestion16, testQuestion17, testQuestion18, testQuestion19, testQuestion20,
+    testQuestion21, testQuestion22, testQuestion23, testQuestion24, testQuestion25,
+    testQuestion26, testQuestion27, testQuestion28, testQuestion29, testQuestion30,
+    testQuestion31, testQuestion32, testQuestion33, testQuestion34, testQuestion35,
+    testQuestion36, testQuestion37, testQuestion38, testQuestion39, testQuestion40,
+    testQuestion41, testQuestion42
+];
 
-
-// for(i = 1; i < 42; i++){
-//     questions.push(testQuestion + i)
-// }
-
-questions.push(testQuestion1);
-questions.push(testQuestion2);
-questions.push(testQuestion3);
-questions.push(testQuestion4);
-questions.push(testQuestion5);
-questions.push(testQuestion6);
-questions.push(testQuestion7);
-questions.push(testQuestion8);
-questions.push(testQuestion9);
-questions.push(testQuestion10);
-questions.push(testQuestion11);
-questions.push(testQuestion12);
-questions.push(testQuestion13);
-questions.push(testQuestion14);
-questions.push(testQuestion15);
-questions.push(testQuestion16);
-questions.push(testQuestion17);
-questions.push(testQuestion18);
-questions.push(testQuestion19);
-questions.push(testQuestion20);
-questions.push(testQuestion21);
-questions.push(testQuestion22);
-questions.push(testQuestion23);
-questions.push(testQuestion24);
-questions.push(testQuestion25);
-questions.push(testQuestion26);
-questions.push(testQuestion27);
-questions.push(testQuestion28);
-questions.push(testQuestion29);
-questions.push(testQuestion30);
-questions.push(testQuestion31);
-questions.push(testQuestion32);
-questions.push(testQuestion33);
-questions.push(testQuestion34);
-questions.push(testQuestion35);
-questions.push(testQuestion36);
-questions.push(testQuestion37);
-questions.push(testQuestion38);
-questions.push(testQuestion39);
-questions.push(testQuestion40);
-questions.push(testQuestion41);
-questions.push(testQuestion42);
 
 //keep modal as variable
 let modal = document.querySelector('.modal');
