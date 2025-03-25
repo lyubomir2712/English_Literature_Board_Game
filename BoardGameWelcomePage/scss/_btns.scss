@@ -1,0 +1,105 @@
+%btns {
+    font-size: 22px;
+    font-family: $primary-font;
+    letter-spacing: 1.5px;
+    padding: 12px;
+    margin: 2em 1.5em;
+    width: 162px;
+    text-align: center;
+    position: relative;
+    transition: background-color 100ms linear;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 8px;
+
+    &__one {
+        @extend %btns;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.25em;
+        color: $secondary-color;
+        background-color: #c23838;
+        box-shadow: inset 0 0 0 0 #f9e506;
+        transition: ease-out 0.3s;
+        letter-spacing: 3px;
+        font-size: 23px;
+
+        &:hover {
+            box-shadow: inset 162px 0 0 0 #f9e506;
+            cursor: pointer;
+            background-color: #c23838;
+            color: black
+        }
+    }
+
+    &__two {
+        @extend %btns;
+        border: 4px solid #e3de56;
+        border-radius: 0.25em;
+        color: #e3de56;
+        text-shadow: 0 0 0.125em, 0 0 0.45em #e3de56;
+        box-shadow: inset 0 0 0.5em 0 #e3de56, 0 0 0.5em 0 #e3de56;
+        
+        &::before {
+            pointer-events: none;
+            content: '';
+            position: absolute;
+            background: #e3de56;
+            top: 120%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        
+            transform: perspective(1.5em) rotateX(40deg) scale(1, 0.35);
+            filter: blur(1.8em);
+            opacity: 0.7;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 0 2em 0.5em #e3de56;
+            opacity: 0;
+            transition: opacity 100ms linear;
+        }
+
+        &:hover, :focus {
+            background-color: #e3de56;
+            color: black;
+            text-shadow: none;
+        }
+    }
+}
+
+.btns__two:hover::before,
+.btns__two:focus::before {
+    opacity: 1;
+}
+.btns__two:hover::after,
+.btns__two:focus::after {    
+    opacity: 1;
+}
+
+// .btns__two::before {
+//     content: '';
+//     position: absolute;
+//     background: #f000ff;
+//     top: 120%;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     transform: perspective(1.5em) rotateX(40deg) scale(1, 0.35);
+//     filter: blur(1.8em);
+//     opacity: 0.7;
+// }
+
+// rgb(87, 0, 62)

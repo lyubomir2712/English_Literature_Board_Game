@@ -1,0 +1,48 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 5em;
+    max-width: 1300px;
+    margin: 0 auto;
+    
+    &__heading {
+       color: #bb535b; 
+       font-size: 22px;
+       font-family: $primary-font;
+       letter-spacing: 8px;
+    }
+
+    &__description {
+        line-height: 30px;
+        color: #dfdfdf;
+        font-family: $primary-font;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        margin-top: 1em;
+
+        &-highlighted {
+            
+            a {
+                color: #bb535b;
+                font-weight: 900;
+            }
+        }
+    }
+
+    &__contact {
+
+        &-info {
+
+            &-highlighted {
+
+                a {
+                    color: #bb535b;
+                    font-weight: 900;
+                }
+                
+            }
+        }
+    }
+}

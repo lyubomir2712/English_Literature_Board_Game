@@ -1,0 +1,71 @@
+.social__icons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    font-size: 19px;
+    font-family: $primary-font;
+    letter-spacing: 1.5px;
+
+    &-apps {
+        display: flex;
+        margin: 0.3em 0;
+        align-items: center;
+        
+        &-text {
+            color: #dfdfdf;
+            margin: 0 0 0 0.8em;
+
+            &:hover {
+                color: #bb535b;
+            }
+        }
+    }
+
+}
+
+%btn {
+    font-size: 20px;
+    font-family: $primary-font;
+    letter-spacing: 1.5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn {
+    @extend %btn;
+    width: 165px;
+    color: #dfdfdf;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    border: 3px solid #bb535b;
+    position: absolute;
+    bottom: 2em;
+    left: 45%;
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        opacity: 0;
+        content: "";
+        background-color: #bb535b;
+    }
+
+    &:hover::before {
+        transition: 0.5s all ease;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        z-index: -1;
+    }
+}

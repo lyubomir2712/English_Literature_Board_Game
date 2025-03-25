@@ -1,0 +1,98 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* margin-top: 250px;
+    margin-left: 400px; */
+    /* background-color: darkblue; */
+}
+
+#question-picker{
+    position: absolute;
+    left: 43em;
+    bottom: 3em;
+}
+
+body{
+    position: relative;
+    background: url('background-img.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.start__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pawn-1 {
+    background: url(./chess-pawn-icon-red.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+
+.pawn-2 {
+    background: url(./chess-pawn-icon-blue.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+.pawn-3 {
+    width: 75px;
+    color: orange;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.pawn-4 {
+    width: 75px;
+    color: green;
+    font-size: 30px;
+    text-align: center;
+}
+
+.board{
+    display: flex;
+    justify-items: center;
+    max-width: 700px;
+    flex-wrap: wrap;
+}
+
+.board .cell{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100px; height: 100px;
+    background-color: gray;
+    border: 1px solid black;
+}
+
+.board .not-cell{
+    width: 100px; height: 100px;
+    background: transparent;
+}
+
+.finish__cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn-info {
+    width: 185px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}

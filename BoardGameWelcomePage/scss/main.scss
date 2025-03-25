@@ -1,0 +1,79 @@
+@import './config';
+@import './header';
+@import './heading';
+@import './btns';
+@import './social-icons';
+@import './responsive';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary-color;
+}
+
+body {
+    color: $secondary-color;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 9vh;         // 8vh actual
+    background: #222627;
+    font-family: $primary-font;
+}
+
+.section__heading {
+    width: 100%;
+    height: 92vh;
+    background: url(../img/img-1.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-family: $secondary-font;
+}
+
+#section__about {
+    width: 100%;
+    height: 100vh;
+    background-color: #272727;
+    position: relative;
+}
+
+.img-1 {
+    width: 200px;           // 250px actual
+    height: 200px;          // 250px actual
+    position: absolute;
+    top: 2.5em;               // 4em actual
+    left: 2.5em;              // 4em actual
+    border-radius: 50%;
+}
+
+.img-2 {
+    width: 200px;           // 250px actual
+    height: 200px;          // 250px actual
+    position: absolute;
+    bottom: 2.5em;            // 4em actual
+    right: 2.5em;             // 4em actual
+    border-radius: 50%;
+}
+
+.down-arr img {
+	width: 48px;
+	height: 48px;
+}
+
+.down-arr {
+	position: absolute;
+	left: 2%;
+	bottom: 2%;
+}

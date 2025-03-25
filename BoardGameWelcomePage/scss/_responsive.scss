@@ -1,0 +1,60 @@
+@include media-md {
+    .header {
+        display: flex;
+        justify-content: center;
+        padding: 1.2em 0;
+        font-size: 19px;
+        letter-spacing: 2px;
+        align-items: center;
+    
+        &__info {
+            display: flex;
+    
+            &-language {
+                letter-spacing: 3px;
+    
+                &-active {
+                    color: #e3de56;
+                }
+            }
+    
+            &-add {
+                display: flex;
+            }
+        }
+    
+        &__contact {
+            margin: 0 5em 0 5em;        // 10em actual
+    
+            &-add {
+                margin: 0 1.5em 0 1.5em;
+    
+                i {
+                    color: #c23838;
+                }
+    
+                a {
+                    margin: 0 0 0 1em;
+                    @include transition-ease;
+    
+                    &:hover {
+                        color: #c23838;
+                    }
+                }
+            }
+        }
+    
+        &__social-icons {
+            font-size: 16px;
+            a {
+                color: $secondary-color;
+                margin: 0 1em 0 1em;
+                @include transition-ease;
+    
+                &:hover {
+                    color: #c23838;
+                }
+            }
+        }
+    }
+}

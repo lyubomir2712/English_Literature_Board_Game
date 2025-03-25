@@ -1,0 +1,17 @@
+$primary-color: #000;
+$secondary-color: #c3c3c3;
+$neon-color: #f000ff;
+$primary-font: 'Stardos Stencil';
+$secondary-font: 'Grenze Gotisch';
+$third-font: "EB Garamond", sans-serif;
+$highlighted-text: blue;
+
+@mixin transition-ease {
+    transition: 0.5s ease-in-out;
+}
+
+@mixin media-md {
+    @media screen and (min-width: 1080px) {
+        @content;
+    }
+}
