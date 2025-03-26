@@ -242,7 +242,7 @@ button.addEventListener('click', function(){
     if(questions.length >= 1){
         generateQuestion();
     }
-    console.log(modal)
+    // console.log(modal)
 })
 
 window.onload = (event) => {
@@ -251,32 +251,26 @@ window.onload = (event) => {
 
 submit_button = document.querySelector('.btn-primary');
 let input = document.querySelector('#question').value
-let turn=1;
+let turn= 1;
+
 submit_button.addEventListener('click', function(){
         if(currentQuestion !== null){
-            if(questions[currentQuestion].answer === document.querySelector('#question').value){
-                if(turn%2){
-                    if(true){
-                        movePawnForward(pawn1)
-                    }
-                }else{
-                    if(true){
-                        movePawnForward(pawn2)
-                    }
-                }
+            if(input === questions[currentQuestion].answer){
+
+                (turn % 2) ? movePawnForward(pawn1) : movePawnForward(pawn2);
                 turn+=1;
             }
-            //deletes the questions form the array
+            //deletes the questions from the array
             questions.splice(currentQuestion, 1);
         }
         //clear form
         document.querySelector(".modal-question").innerHTML = "";
         document.querySelector("#question").value = "";
-        console.log(questions.length)
+        // console.log(questions.length)
         //disables the button if there are no more questions
         if(questions.length === 0){
             button.disabled = true;
-        }    
+        }
 })
 
 
