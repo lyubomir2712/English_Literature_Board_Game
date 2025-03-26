@@ -1,3 +1,5 @@
+let cells = document.querySelectorAll('.cell');
+
 let questions = [];
 
 async function loadQuestions() {
@@ -11,7 +13,7 @@ async function loadQuestions() {
     }
 }
 
-let cells = document.querySelectorAll('.cell');
+
 
 
 let modal = document.querySelector('.modal-question');
@@ -82,7 +84,6 @@ window.onload = () => {
 };
 
 
-
 let submit_button = document.querySelector('.btn-primary');
 
 let button = document.querySelector('#question-picker')
@@ -93,12 +94,10 @@ button.addEventListener('click', function(){
 })
 
 submit_button.addEventListener('click', function(){
-    debugger
     let input = document.querySelector('#question').value
     if(  input === questions[currentQuestion].answer){
         movePawnForward(pawnsToPlay[pawnToMove])
         }
-        turn++;
 
         //set next pawn to move
         if(pawnToMove < pawnsToPlay.length - 1){
