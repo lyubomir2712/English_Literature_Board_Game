@@ -13,7 +13,7 @@ async function loadQuestions() {
 
 let cells = document.querySelectorAll('.cell');
 
-//keep modal as variable
+
 let modal = document.querySelector('.modal-question');
 let currentQuestion = null;
 
@@ -72,7 +72,7 @@ function movePawnForward(pawn) {
 
 
 // Setup
-let turn=0;
+let turn= 0;
 let pawnsToPlay = [pawn1, pawn2]
 let pawnToMove = 0
 
