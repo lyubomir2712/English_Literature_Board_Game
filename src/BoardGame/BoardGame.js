@@ -84,7 +84,6 @@ window.onload = () => {
 
 
 let submit_button = document.querySelector('.btn-primary');
-let input = document.querySelector('#question').value
 
 let button = document.querySelector('#question-picker')
 button.addEventListener('click', function(){
@@ -94,8 +93,10 @@ button.addEventListener('click', function(){
 })
 
 submit_button.addEventListener('click', function(){
-        if(input.value === questions[currentQuestion].answer){
-            movePawnForward(pawnsToPlay[pawnToMove])
+    debugger
+    let input = document.querySelector('#question').value
+    if(  input === questions[currentQuestion].answer){
+        movePawnForward(pawnsToPlay[pawnToMove])
         }
         turn++;
 
