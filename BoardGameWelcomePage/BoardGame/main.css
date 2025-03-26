@@ -16,7 +16,7 @@
 
 body{
     position: relative;
-    background: url('../BoardGameWelcomePage/img/background-img.jpg');
+    background: url('../assets/img/background-img.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -29,7 +29,7 @@ body{
 }
 
 .pawn-1 {
-    background: url(../BoardGameWelcomePage/img/chess-pawn-icon-red.svg);
+    background: url(../assets/svg/chess-pawn-icon-red.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 50px;
@@ -37,7 +37,7 @@ body{
 }
 
 .pawn-2 {
-    background: url(../BoardGameWelcomePage/img/chess-pawn-icon-blue.svg);
+    background: url(../assets/svg/chess-pawn-icon-blue.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 50px;
