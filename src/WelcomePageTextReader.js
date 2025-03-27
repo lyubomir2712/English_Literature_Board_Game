@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Game title and description
     const gameName = document.querySelector('.heading__name');
     const gameDescription = document.querySelector('.heading__description');
+    const creatorsPara = document.querySelector('.para__info'); // New selector for creators paragraph
 
     gameName.addEventListener('mouseenter', () => speakText("Board Game"));
     gameDescription.addEventListener('mouseenter', () => speakText("A game that gives you the chance to explore the world of the English literature"));
+    creatorsPara.addEventListener('mouseenter', () => speakText("The game is developed and designed by Lyubomir Georgiev")); // New hover effect
 
     // Navigation items
     const navItems = [
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             selector: '.header__contact-add:nth-child(2)',
-            text: 'This is a button to see creators location which is in Sofia, Bulgaria'
+            text: 'This is button to see creators location which is in Sofia, Bulgaria'
         },
         {
             selector: '.header__contact-add:nth-child(3)',
@@ -58,11 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttons = [
         {
             selector: '.btns__one',
-            text: 'Tutorial button - watch how to play the game'
+            text: 'This is a button which leads to a tutorial video of the game'
         },
         {
             selector: '.btns__two',
-            text: 'Play Game button - start playing now'
+            text: 'This is a button to play the game'
         },
         {
             selector: '.btn a',
@@ -77,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
             element.addEventListener('mouseleave', () => window.speechSynthesis.cancel());
         }
     });
+
+    // Add mouseleave for creators paragraph
+    creatorsPara.addEventListener('mouseleave', () => window.speechSynthesis.cancel());
 
     // Keyboard control
     document.addEventListener('keydown', function(e) {
