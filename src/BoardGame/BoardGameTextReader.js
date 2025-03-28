@@ -39,28 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
             speakText("Click this button to generate a question");
         });
         generateBtn.addEventListener('mouseleave', () => speech.cancel());
+
+        // Add click handler to announce modal appearance
+        generateBtn.addEventListener('click', () => {
+            speakText("A modal with the question has popped up");
+        });
     }
 
     // Modal elements
     const modal = document.getElementById('staticBackdrop');
     if (modal) {
-        // Read question when modal appears
-        modal.addEventListener('shown.bs.modal', function() {
-            const question = document.querySelector('.modal-question').textContent;
-            if (question.trim()) {
-                speakText("Question: " + question);
+        // Removed automatic question reading when modal appears
 
-                const answerOptions = document.querySelectorAll('.answer-options li');
-                if (answerOptions.length > 0) {
-                    const answers = Array.from(answerOptions).map(opt => opt.textContent);
-                    setTimeout(() => {
-                        readAnswersWithDelay(answers);
-                    }, 2500);
-                }
-            }
-        });
-
-        // Modal title hover (Hamlet / The Fellowship of the Ring)
+        // Modal title hover
         const modalTitle = document.getElementById('exampleModalLabel');
         if (modalTitle) {
             modalTitle.addEventListener('mouseenter', function() {
@@ -69,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalTitle.addEventListener('mouseleave', () => speech.cancel());
         }
 
-        // Question text hover
+        // Question text hover (now the only way to hear the question)
         const modalQuestion = document.querySelector('.modal-question');
         if (modalQuestion) {
             modalQuestion.addEventListener('mouseenter', function() {
