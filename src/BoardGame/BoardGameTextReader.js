@@ -69,13 +69,20 @@ document.addEventListener('DOMContentLoaded', function() {
             modalQuestion.addEventListener('mouseleave', () => speech.cancel());
         }
 
-        // Close button (X) hover
+        // Close button (X) hover and click
         const closeButton = document.querySelector('.btn-close');
         if (closeButton) {
             closeButton.addEventListener('mouseenter', function() {
                 speakText("This is a button to exit the modal");
             });
             closeButton.addEventListener('mouseleave', () => speech.cancel());
+
+            // Updated click handler with new announcement
+            closeButton.addEventListener('click', function() {
+                setTimeout(() => {
+                    speakText("You have exited the modal with the question");
+                }, 300);
+            });
         }
 
         // Submit button hover
