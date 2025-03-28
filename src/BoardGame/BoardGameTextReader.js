@@ -20,19 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Page load announcement
     speakText("You have entered the page with the board game");
 
-    function readAnswersWithDelay(answers) {
-        if (isReadingAnswers) return;
-        isReadingAnswers = true;
+    // Function to setup hover events for all cells with aria-label
+    function setupCellHoverEvents() {
+        const cells = document.querySelectorAll('.cell[aria-label]');
 
-        speakText("Here are the possible answers:", 0);
+        cells.forEach(cell => {
+            cell.addEventListener('mouseenter', function() {
+                const label = this.getAttribute('aria-label');
+                if (label) {
+                    speakText(label);
+                }
+            });
 
-        answers.forEach((answer, index) => {
-            speakText(answer, 1500 + (index * 1500));
+            cell.addEventListener('mouseleave', function() {
+                speech.cancel();
+            });
         });
-
-        currentUtterance.onend = function() {
-            isReadingAnswers = false;
-        };
     }
 
     // Add hover events for player pawns
@@ -57,8 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize pawn hover events after a short delay to ensure pawns are created
-    setTimeout(setupPawnHoverEvents, 1000);
+    // Initialize hover events after a short delay to ensure all elements exist
+    setTimeout(() => {
+        setupCellHoverEvents();
+        setupPawnHoverEvents();
+    }, 1000);
+
+    // Rest of your existing code remains the same...
+    // [Keep all the existing code for generateBtn, modal, keyboard control, etc.]
 
     // Generate question button hover
     const generateBtn = document.getElementById('question-picker');
