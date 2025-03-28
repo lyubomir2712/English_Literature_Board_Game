@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cell.addEventListener('mouseenter', function() {
                 const label = this.getAttribute('aria-label');
                 if (label) {
-                    speakText(label);
+                    speakText("This is " + label);
                 }
             });
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pawn1) {
             pawn1.addEventListener('mouseenter', () => {
                 const label = pawn1.getAttribute('aria-label') || 'Player 1 pawn';
-                speakText(label);
+                speakText("This is " + label);
             });
             pawn1.addEventListener('mouseleave', () => speech.cancel());
         }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pawn2) {
             pawn2.addEventListener('mouseenter', () => {
                 const label = pawn2.getAttribute('aria-label') || 'Player 2 pawn';
-                speakText(label);
+                speakText("This is " + label);
             });
             pawn2.addEventListener('mouseleave', () => speech.cancel());
         }
