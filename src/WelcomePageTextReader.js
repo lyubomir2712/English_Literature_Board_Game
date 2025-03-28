@@ -13,11 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Game title and description
     const gameName = document.querySelector('.heading__name');
     const gameDescription = document.querySelector('.heading__description');
-    const creatorsPara = document.querySelector('.para__info'); // New selector for creators paragraph
+    const creatorsPara = document.querySelector('.para__info');
+    const logo = document.getElementById('logo'); // Get the logo element
 
     gameName.addEventListener('mouseenter', () => speakText("Board Game"));
     gameDescription.addEventListener('mouseenter', () => speakText("A game that gives you the chance to explore the world of the English literature"));
-    creatorsPara.addEventListener('mouseenter', () => speakText("The game is developed and designed by Lyubomir Georgiev")); // New hover effect
+    creatorsPara.addEventListener('mouseenter', () => speakText("The game is developed and designed by Lyubomir Georgiev"));
+
+    // Add hover effect for logo using its aria-label
+    logo.addEventListener('mouseenter', () => speakText(logo.getAttribute('aria-label')));
+    logo.addEventListener('mouseleave', () => window.speechSynthesis.cancel());
 
     // Navigation items
     const navItems = [
