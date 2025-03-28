@@ -35,6 +35,31 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    // Add hover events for player pawns
+    function setupPawnHoverEvents() {
+        const pawn1 = document.querySelector('.pawn-1');
+        const pawn2 = document.querySelector('.pawn-2');
+
+        if (pawn1) {
+            pawn1.addEventListener('mouseenter', () => {
+                const label = pawn1.getAttribute('aria-label') || 'Player 1 pawn';
+                speakText(label);
+            });
+            pawn1.addEventListener('mouseleave', () => speech.cancel());
+        }
+
+        if (pawn2) {
+            pawn2.addEventListener('mouseenter', () => {
+                const label = pawn2.getAttribute('aria-label') || 'Player 2 pawn';
+                speakText(label);
+            });
+            pawn2.addEventListener('mouseleave', () => speech.cancel());
+        }
+    }
+
+    // Initialize pawn hover events after a short delay to ensure pawns are created
+    setTimeout(setupPawnHoverEvents, 1000);
+
     // Generate question button hover
     const generateBtn = document.getElementById('question-picker');
     if (generateBtn) {

@@ -52,6 +52,7 @@ function generateQuestion() {
 function createPawn(number) {
     let obj = document.createElement('i');
     obj.setAttribute("id", number);
+    obj.setAttribute("aria-label", `Player ${number} pawn`);  // Add this line
     obj.classList.add("fas");
     obj.classList.add("fa-chess-pawn");
     obj.classList.add(`pawn-${number}`);
