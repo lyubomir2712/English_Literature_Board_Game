@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentUtterance = null;
     let answerQueue = [];
     let isReadingAnswers = false;
+    let lastInputLength = 0;
 
     function speakText(text, delay = 0) {
         if (speech) {
@@ -60,10 +61,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Function to read input characters as they're typed
+    function setupInputCharacterReading() {
+        const answerInput = document.getElementById('question');
+        if (answerInput) {
+            answerInput.addEventListener('input', function(e) {
+                const currentValue = this.value;
+                if (currentValue.length > lastInputLength) {
+                    // Only read the new character if text was added (not deleted)
+                    const newChar = currentValue.slice(-1);
+                    speakText(newChar);
+                }
+                lastInputLength = currentValue.length;
+            });
+
+            // Also add space reading
+            answerInput.addEventListener('keydown', function(e) {
+                if (e.key === ' ') {
+                    speakText('space');
+                }
+            });
+        }
+    }
+
     // Initialize hover events after a short delay to ensure all elements exist
     setTimeout(() => {
         setupCellHoverEvents();
         setupPawnHoverEvents();
+        setupInputCharacterReading();
     }, 1000);
 
     // Rest of your existing code remains the same...
@@ -168,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             speech.cancel();
             answerQueue = [];
             isReadingAnswers = false;
+            lastInputLength = 0; // Reset input length tracker
         });
     }
 });
