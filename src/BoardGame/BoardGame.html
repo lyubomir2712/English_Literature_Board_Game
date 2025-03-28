@@ -16,7 +16,7 @@
     <!-- Button trigger modal -->
     <div class="center">
         <div class="outer button">
-            <button id="question-picker" type="button" class="btn-info" data-bs-toggle="modal"
+            <button aria-label="generate question button" id="question-picker" type="button" class="btn-info" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
                 Generate a question
             </button>
@@ -27,23 +27,23 @@
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog" aria-label="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hamlet / The Fellowship of the Ring</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel" aria-label="title of the literatures">Hamlet / The Fellowship of the Ring</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close button"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
                             <label class="modal-question col-form-label" for="question"></label>
-                            <input type="text" class="form-control" id="question">
+                            <input aria-label="answer input" type="text" class="form-control" id="question">
                         </div>
                     </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button aria-label="submit button" type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                 </div>
             </div>
         </div>
