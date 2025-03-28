@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Page load announcement
+    speakText("You have entered the page with the board game");
+
     function readAnswersWithDelay(answers) {
         if (isReadingAnswers) return;
         isReadingAnswers = true;
