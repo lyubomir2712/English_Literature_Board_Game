@@ -122,14 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modalTitle.addEventListener('mouseleave', () => speech.cancel());
         }
 
-        // Question text hover (now the only way to hear the question)
-        const modalQuestion = document.querySelector('.modal-question');
-        if (modalQuestion) {
-            modalQuestion.addEventListener('mouseenter', function() {
-                speakText("Question: " + this.textContent);
-            });
-            modalQuestion.addEventListener('mouseleave', () => speech.cancel());
-        }
 
         // Close button (X) hover and click
         const closeButton = document.querySelector('.btn-close');
@@ -197,3 +189,97 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+
+
+// Add to existing code
+let isSpeaking = false;
+let speechQueue = [];
+
+function processSpeechQueue() {
+    if (speechQueue.length > 0 && !isSpeaking) {
+        isSpeaking = true;
+        const { text, delay } = speechQueue.shift();
+        setTimeout(() => {
+            speakText(text);
+            isSpeaking = false;
+            processSpeechQueue();
+        }, delay);
+    }
+}
+
+function speakWithPauses(text) {
+    // Clean the question text
+    const cleanText = text.replace(/<[^>]*>/g, ' ');
+
+    // Split into question and options
+    const parts = cleanText.split(/([a-z]\))/gi);
+    const questionPart = parts[0].trim();
+    const options = [];
+
+    // Collect options
+    for (let i = 1; i < parts.length; i += 2) {
+        const optionLetter = parts[i];
+        const optionText = (parts[i + 1] || '').trim();
+        if (optionLetter && optionText) {
+            options.push(`${optionLetter.toUpperCase()} ${optionText}`);
+        }
+    }
+
+    // Clear previous queue
+    speechQueue = [];
+
+    // Add question to queue
+    if (questionPart) {
+        speechQueue.push({ text: questionPart, delay: 0 });
+    }
+
+    // Add options with delays
+    options.forEach((option, index) => {
+        speechQueue.push({
+            text: option,
+            delay: index === 0 ? 1000 : 500 // Longer pause after question
+        });
+    });
+
+    // Start processing queue
+    processSpeechQueue();
+}
+
+// Add hover event handler
+modal.addEventListener('mouseenter', function() {
+    if (this.textContent.trim() && !isSpeaking) {
+        speakWithPauses(this.textContent);
+    }
+});
+
+modal.addEventListener('mouseleave', function() {
+    if (speech) {
+        speech.cancel();
+        isSpeaking = false;
+        speechQueue = [];
+    }
+});
+
+// Modified speakText function to prevent cancellation
+function speakText(text) {
+    if (speech) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onerror = (event) => {
+            console.error('Speech error:', event.error);
+            isSpeaking = false;
+        };
+
+        utterance.onend = () => {
+            isSpeaking = false;
+            processSpeechQueue();
+        };
+
+        speech.speak(utterance);
+    }
+}
