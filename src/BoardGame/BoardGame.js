@@ -142,9 +142,7 @@ submit_button.addEventListener('click', function() {
         let finish = document.querySelector(".finish__cell").children;
         if (finish.length > 0) {
             const winnerId = finish[0].id;
-            setTimeout(() => {
-                speakText(`Player ${winnerId} has won the game!`);
-            }, 500);
+            speakText(`Player ${winnerId} has won the game!`);
             window.alert(`PAWN ${winnerId} has WON!`);
         }
 
